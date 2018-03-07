@@ -179,6 +179,7 @@ steps:
         - app:index.docker.io/org/repo/myapp
         - app:index.docker.io/org/repo/myapp:latest
 ```
+
 ## Reusing caches from images
 
 A newly spawned agent won't contain any of the docker caches for the first run which will result in a long build step. To mitigate this you can reuse caches from a previously built image if it was pushed to the repo on a past run
@@ -231,9 +232,7 @@ This option can also be configured on the agent machine using the environment va
 
 ### `image-name` (optional, build only)
 
-The name to use when tagging pre-built images.
-
-The default is `${BUILDKITE_PIPELINE_SLUG}-${BUILDKITE_PLUGIN_DOCKER_COMPOSE_BUILD}-build-${BUILDKITE_BUILD_NUMBER}`, for example `my-project-web-build-42`.
+The name to use when tagging pre-built images. If multiple images are built in the build phase, you must provide an array of image names.
 
 Note: this option can only be specified on a `build` step.
 
